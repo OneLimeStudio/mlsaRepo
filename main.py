@@ -16,6 +16,8 @@ def display_resource_chart():
     
     # Return the image as a response
     return send_file(resourceChart.generate_chart(), mimetype='image/png')
+
+
 @app.route('/monster_survivors', methods=['GET'])
 def display_monster_survivor_chart():
     return send_file(msChart.generate_chart(), mimetype='image/png')    
@@ -44,7 +46,8 @@ def loadData():
 
 #FETCH and Store all the json files 
 # We call it before Server is ran
-# loadData()             
+loadData()
+resourceChart.giveScores()             
 app.run(port=5000)
 #display_resource_chart()
 
